@@ -1,0 +1,12 @@
+### POST request to create Patient
+POST http://localhost:4000/patients
+Content-type: application/json
+
+{
+  "name": "Johan Doe",
+  "email": "test123@gmail.com",
+  "address": "testarea, 392001, Bharuch",
+  "dateOfBirth": "2003-13-01",
+  "registeredDate": "2005-12-12"
+}
+###
