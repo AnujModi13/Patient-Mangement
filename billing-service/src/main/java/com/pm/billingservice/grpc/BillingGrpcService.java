@@ -1,5 +1,6 @@
 package com.pm.billingservice.grpc;
 
+import billing.BillingRequest;
 import billing.BillingResponse;
 import billing.BillingServiceGrpc.BillingServiceImplBase;
 import io.grpc.stub.StreamObserver;
@@ -10,16 +11,19 @@ import org.slf4j.LoggerFactory;
 @GrpcService
 public class BillingGrpcService extends BillingServiceImplBase {
 
-    private static final Logger log = LoggerFactory.getLogger(BillingGrpcService.class);
+    private static final Logger log = LoggerFactory.getLogger(
+            BillingGrpcService.class);
 
     @Override
-    public void CreateBillingAccount(billing.BillingRequest billingRequest, StreamObserver<BillingResponse> responseObserver){
-        log.info("Creating BillingAccount Request received {}", billingRequest.toString());
+    public void createBillingAccount(BillingRequest billingRequest,
+                                     StreamObserver<BillingResponse> responseObserver) {
 
-        // Business Logic to save the data into db.
+        log.info("createBillingAccount request received {}", billingRequest.toString());
+
+        // Business logic - e.g save to database, perform calculates etc
 
         BillingResponse response = BillingResponse.newBuilder()
-                .setAccountId("123")
+                .setAccountId("12345")
                 .setStatus("ACTIVE")
                 .build();
 
